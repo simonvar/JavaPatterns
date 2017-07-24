@@ -1,7 +1,4 @@
-# Design patterns (on Java)
-
-Studying design patterns.  
-Book "Design Patterns" Eric and Elisabeth Freeman.
+# Design patterns list
 
 <ul>
     <li>
