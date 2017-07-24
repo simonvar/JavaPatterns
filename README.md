@@ -14,6 +14,6 @@ Book "Design Patterns" Eric and Elisabeth Freeman.
        <a href="src/xyz/tritin/decorator">Decorator</a>
     </li>
       <li>
-       <a href="src/xyz/tritin/factory">Factory</a>
+       <a href="src/xyz/tritin/factory">Abstract Factory & Factory Method</a>
     </li>
 </ul>
