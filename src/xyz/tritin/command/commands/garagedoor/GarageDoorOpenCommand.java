@@ -1,6 +1,7 @@
-package xyz.tritin.command.commands;
+package xyz.tritin.command.commands.garagedoor;
 
-import xyz.tritin.command.devices.GarageDoor;
+import xyz.tritin.command.commands.Command;
+import xyz.tritin.command.commands.garagedoor.GarageDoor;
 
 /**
  * @author Simon

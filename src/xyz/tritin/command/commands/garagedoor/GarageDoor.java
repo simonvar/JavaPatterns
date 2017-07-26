@@ -1,4 +1,4 @@
-package xyz.tritin.command.devices;
+package xyz.tritin.command.commands.garagedoor;
 
 /**
  * @author Simon

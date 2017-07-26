@@ -1,7 +1,7 @@
-package xyz.tritin.command.commands;
+package xyz.tritin.command.commands.light;
 
 import xyz.tritin.command.commands.Command;
-import xyz.tritin.command.devices.Light;
+import xyz.tritin.command.commands.light.Light;
 
 /**
  * @author Simon

@@ -1,8 +1,8 @@
 import xyz.tritin.command.SimpleRemoteControl;
-import xyz.tritin.command.commands.GarageDoorOpenCommand;
-import xyz.tritin.command.commands.LightOnCommand;
-import xyz.tritin.command.devices.GarageDoor;
-import xyz.tritin.command.devices.Light;
+import xyz.tritin.command.commands.garagedoor.GarageDoorOpenCommand;
+import xyz.tritin.command.commands.light.LightOnCommand;
+import xyz.tritin.command.commands.garagedoor.GarageDoor;
+import xyz.tritin.command.commands.light.Light;
 
 /**
  * @author Simon
@@ -15,7 +15,7 @@ import xyz.tritin.command.devices.Light;
  * поддержку отмены операций.
  *
  */
-public class RemoteControlTest {
+public class RemoteLoader {
 
     public static void main(String[] args){
         Light light = new Light();
