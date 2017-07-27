@@ -6,12 +6,18 @@ package xyz.tritin.command.commands.light;
  */
 public class Light {
 
+    private String stringId;
+
+    public Light(String stringId) {
+        this.stringId = stringId;
+    }
+
     public void on(){
-        System.out.println("Light is On");
+        System.out.println(stringId + " is On");
     }
 
     public void off(){
-        System.out.println("Light is Off");
+        System.out.println(stringId + " is Off");
     }
 
 }

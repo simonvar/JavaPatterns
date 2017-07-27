@@ -7,5 +7,6 @@ package xyz.tritin.command.commands;
 public interface Command {
 
     void execute();
+    void undo();
 
 }

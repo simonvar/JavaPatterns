@@ -6,12 +6,18 @@ package xyz.tritin.command.commands.garagedoor;
  */
 public class GarageDoor {
 
+    private String stringId;
+
+    public GarageDoor(String stringId) {
+        this.stringId = stringId;
+    }
+
     public void up(){
-        System.out.println("Garage Door is Open");
+        System.out.println(stringId + " is Open");
     }
 
     public void down(){
-        System.out.println("Garage Door is Close");
+        System.out.println(stringId + " is Close");
     }
 
     public void stop(){}

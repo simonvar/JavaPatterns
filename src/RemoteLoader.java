@@ -1,8 +1,16 @@
-import xyz.tritin.command.SimpleRemoteControl;
-import xyz.tritin.command.commands.garagedoor.GarageDoorOpenCommand;
-import xyz.tritin.command.commands.light.LightOnCommand;
+import xyz.tritin.command.RemoteControl;
 import xyz.tritin.command.commands.garagedoor.GarageDoor;
+import xyz.tritin.command.commands.garagedoor.GarageDoorCloseCommand;
+import xyz.tritin.command.commands.garagedoor.GarageDoorOpenCommand;
 import xyz.tritin.command.commands.light.Light;
+import xyz.tritin.command.commands.light.LightOffCommand;
+import xyz.tritin.command.commands.light.LightOnCommand;
+import xyz.tritin.command.commands.securitycontrol.SecurityControl;
+import xyz.tritin.command.commands.securitycontrol.SecurityControlArmCommand;
+import xyz.tritin.command.commands.securitycontrol.SecurityControlDisarmCommand;
+import xyz.tritin.command.commands.stereo.Stereo;
+import xyz.tritin.command.commands.stereo.StereoOffCommand;
+import xyz.tritin.command.commands.stereo.StereoOnWithCDCommand;
 
 /**
  * @author Simon
@@ -18,17 +26,45 @@ import xyz.tritin.command.commands.light.Light;
 public class RemoteLoader {
 
     public static void main(String[] args){
-        Light light = new Light();
-        LightOnCommand lightOnCommand = new LightOnCommand(light);
+        RemoteControl remoteControl = new RemoteControl();
 
-        GarageDoor door = new GarageDoor();
-        GarageDoorOpenCommand openCommand = new GarageDoorOpenCommand(door);
+        Light kitchenLight = new Light("Kitchen Light");
+        Light garageLight = new Light("Garage Light");
+        SecurityControl securityControl = new SecurityControl("Main Security Control");
+        GarageDoor garageDoor = new GarageDoor("Main Garage Door");
+        Stereo stereo = new Stereo("Kitchen Stereo");
 
-        SimpleRemoteControl control = new SimpleRemoteControl()
-                .setCommand(lightOnCommand)
-                .buttonWasPressed()
-                .setCommand(openCommand)
-                .buttonWasPressed();
+        LightOnCommand kitchenLightOn = new LightOnCommand(kitchenLight);
+        LightOnCommand garageLightOn = new LightOnCommand(garageLight);
+
+        LightOffCommand kitchenLightOff = new LightOffCommand(kitchenLight);
+        LightOffCommand garageLightOff = new LightOffCommand(garageLight);
+
+        SecurityControlArmCommand securityArm = new SecurityControlArmCommand(securityControl);
+        SecurityControlDisarmCommand securityDisarm = new SecurityControlDisarmCommand(securityControl);
+
+        GarageDoorOpenCommand openDoor = new GarageDoorOpenCommand(garageDoor);
+        GarageDoorCloseCommand closeDoor = new GarageDoorCloseCommand(garageDoor);
+
+        StereoOnWithCDCommand stereoOnWithCD = new StereoOnWithCDCommand(stereo);
+        StereoOffCommand stereoOff = new StereoOffCommand(stereo);
+
+
+        remoteControl.setCommand(0, securityArm, securityDisarm);
+        remoteControl.setCommand(1, openDoor, closeDoor);
+        remoteControl.setCommand(2, garageLightOn, garageLightOff);
+        remoteControl.setCommand(3, kitchenLightOn, kitchenLightOff);
+        remoteControl.setCommand(4, stereoOnWithCD, stereoOff);
+
+        System.out.println(remoteControl);
+
+        remoteControl.offButtonWasPushed(0);
+        remoteControl.onButtonWasPushed(1);
+        remoteControl.onButtonWasPushed(2);
+        remoteControl.onButtonWasPushed(3);
+        remoteControl.undoButtonWasPushed();
+        remoteControl.onButtonWasPushed(4);
+
     }
 
 }

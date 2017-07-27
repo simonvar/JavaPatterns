@@ -10,6 +10,7 @@ import xyz.tritin.command.commands.NoCommand;
 public class RemoteControl {
     private Command onCommands[];
     private Command offCommands[];
+    private Command undoCommand;
 
     public RemoteControl(){
         onCommands = new Command[7];
@@ -20,6 +21,7 @@ public class RemoteControl {
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
+        undoCommand = noCommand;
     }
 
     public void setCommand(int slot, Command onCommand, Command offCommand){
@@ -29,10 +31,16 @@ public class RemoteControl {
 
     public void onButtonWasPushed(int slot){
         onCommands[slot].execute();
+        undoCommand = onCommands[slot];
     }
 
     public void offButtonWasPushed(int slot){
         offCommands[slot].execute();
+        undoCommand = offCommands[slot];
+    }
+
+    public void undoButtonWasPushed(){
+        undoCommand.undo();
     }
 
     @Override

@@ -6,30 +6,39 @@ package xyz.tritin.command.commands.stereo;
  */
 public class Stereo {
 
+    private String stringId;
     private int volume = 5;
 
+    public Stereo(String stringId) {
+        this.stringId = stringId;
+    }
+
     public void on(){
-        System.out.println("Stereo is On");
+        System.out.println(stringId + " is On");
     }
 
     public void off(){
-        System.out.println("Stereo is Off");
+        System.out.println(stringId + " is Off");
     }
 
     public void setCd(){
-        System.out.println("Stereo CD is Set");
+        System.out.println(stringId + " CD is Set");
     }
 
     public void setDvd(){
-        System.out.println("Stereo DVD is Set");
+        System.out.println(stringId + " DVD is Set");
     }
 
     public void setRadio(){
-        System.out.println("Stereo Radio is Set");
+        System.out.println(stringId + " Radio is Set");
     }
 
     public void setVolume(int volume){
         this.volume = volume;
-        System.out.println("Stereo Volume set as " + volume);
+        System.out.println(stringId + " Volume set as " + volume);
+    }
+
+    public int getVolume() {
+        return volume;
     }
 }

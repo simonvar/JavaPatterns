@@ -9,7 +9,7 @@ import xyz.tritin.command.commands.Command;
  */
 public class SecurityControlDisarmCommand implements Command{
 
-    SecurityControl control;
+    private SecurityControl control;
 
     public SecurityControlDisarmCommand(SecurityControl control) {
         this.control = control;
@@ -17,6 +17,11 @@ public class SecurityControlDisarmCommand implements Command{
 
     @Override
     public void execute() {
+        control.disarm();
+    }
+
+    @Override
+    public void undo() {
         control.arm();
     }
 

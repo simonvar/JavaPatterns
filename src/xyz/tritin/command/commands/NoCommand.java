@@ -9,4 +9,9 @@ public class NoCommand implements Command{
     public void execute() {
         System.out.println("Команда не установлена");
     }
+
+    @Override
+    public void undo() {
+        System.out.println("Команда не установлена");
+    }
 }
