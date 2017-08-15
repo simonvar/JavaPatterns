@@ -19,4 +19,7 @@
     <li>
        <a href="https://github.com/simonvar/JavaPatterns/tree/master/src/xyz/tritin/command">Command</a>
     </li>
+    <li>
+       <a href="https://github.com/simonvar/JavaPatterns/tree/master/src/xyz/tritin/adapter">Adapter</a>
+    </li>
 </ul>
